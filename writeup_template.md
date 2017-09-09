@@ -393,7 +393,7 @@ I've created a Pipeline Function to consolidate all steps above:
 
 #### 1. Final Result.
 
-Here's a [link to my video result](./blob/master/out_test_video.mp4)
+Here's a [link to my video result](https://github.com/CesarTrevisan/Advanced-Lane-Fiding/blob/master/out_test_video.mp4)
 
 ---
 
