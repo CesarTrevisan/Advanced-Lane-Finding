@@ -393,7 +393,7 @@ I've created a Pipeline Function to consolidate all steps above:
 
 #### 1. Final Result.
 
-Here's a [link to my video result](./out_test_video.mp4.mp4)
+Here's a [link to my video result](./blob/master/out_test_video.mp4)
 
 ---
 
