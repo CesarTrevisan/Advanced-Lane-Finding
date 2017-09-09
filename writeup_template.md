@@ -24,6 +24,9 @@ The goals / steps of this project are the following:
 [image4]: ./examples/warped_straight_lines.jpg "Warp Example"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
 [image6]: ./examples/example_output.jpg "Output"
+[image7]: ./writeup_images/histogram.png "Binary Warped"
+[image8]: ./writeup_images/histogram2.png "Histogram"
+
 [video1]: ./project_video.mp4 "Video"
 
 ---
@@ -95,11 +98,11 @@ top_left = (555, 455)
 botom_right = (1280, 680)
 botom_left = (0, 680)
 
-# Source
-'src = np.float32([[top_right],[top_left],[botom_right],[botom_left]])'
+##### Source
+    'src = np.float32([[top_right],[top_left],[botom_right],[botom_left]])'
 
-# Destination
-'dst = np.float32([[w,0],[0,0],[w,h],[0,h]])'
+##### Destination
+    'dst = np.float32([[w,0],[0,0],[w,h],[0,h]])'
 
 This resulted in the following source and destination points:
 
@@ -191,6 +194,13 @@ To consolidade all the step above I've created a function that gives us a Undist
 '
 
 #### 4. Identified lane-line pixels and fit their positions with a polynomial
+
+To Fiting lines I identify the concentration of pixel using a histogram and Sliding Windows
+
+![alt text][image7]
+
+![alt text][image8]
+
 
 Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
 
