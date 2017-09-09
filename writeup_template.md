@@ -371,14 +371,42 @@ To Plot Lane into image and write some usefull information I've created draw_lan
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+I've created a Pipeline Function to consolidate all steps above:
 
-Here's a [link to my video result](./project_video.mp4)
+    def pipeline(img):
+
+        # creating a Binary Undistorced Warped Image
+        binary_warped, Minv = binary(img)
+
+        # Fiting Lines
+        left_fit, right_fit,out_img, lefty, leftx, righty, rightx, ploty = fitlines(binary_warped)    
+
+        # Calulating the left and right lines curvatures
+        left_curverad, right_curverad = curvatures(lefty, leftx, righty, rightx, ploty)
+
+        # Draw Lane between road lines
+        result_lane = draw_lane(img, binary_warped, left_fit, right_fit, ploty, left_curverad, right_curverad, Minv)
+
+        return result_lane    
+
+
+
+#### 1. Final Result.
+
+Here's a [link to my video result](./out_test_video.mp4.mp4)
 
 ---
 
 ### Discussion
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+#### 1. Sumary
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+I used Python CV2 functions to undistort a image using many images from tha same camera, I searched and found conners of a chess table that I used to creat a transformation Matrix to undistort images. Then I focus in a specific road area, to do this a apply a perspective tranformation to gives us a "bird view" of road. So, using Color and Gradient Threshold tecniques I highlighted lanes lines of road creating a Binary image where the points are lane areas. 
+
+To identify where Lanes is I used Slide Windowns, looking for pointo to fit a in a secound degree polinomial funcion and give us the left and right curvature. 
+
+To finish and present the result I plot lane area and information about curvatures on the images, and also create a video. 
+
+#### 1. Considerations
+
+For the Project video, the tecniques described worked very well, to harder and challeng video the pipeline needs some fine tuning or even adition of another techniques to improve the results. In Conclusion, the set of image analysis techniques proved to be a very robust way to identify lane lines in the road. 
