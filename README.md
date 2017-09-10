@@ -395,6 +395,8 @@ I've created a Pipeline Function to consolidate all steps above:
 
 Here's a [link to my video result](https://github.com/CesarTrevisan/Advanced-Lane-Fiding/blob/master/out_test_video.mp4?raw=true)
 
+[YouTube Video](https://youtu.be/cZVB8YrGI04 "See on Youtube")
+
 ---
 
 ### Discussion
